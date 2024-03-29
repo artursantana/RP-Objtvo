@@ -17,6 +17,8 @@ export const Container = styled.div`
     .selected {
         background-color: lightblue;
     }
-
+    .disabled{
+        background-color: #ccc;
+    }
 
 `
