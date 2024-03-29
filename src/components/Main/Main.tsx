@@ -127,30 +127,30 @@ const DayNumber = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1
 
   return (
     <S.Container>
-        <h2>{MesAtualForPrint}</h2>
 
-      <div className="calendar-container">
+      <S.ContainerCalendar className="calendar-container">
+        <h2>{MesAtualForPrint}</h2>
         <div className="calendar">
           {renderCalendar()}
         </div>
-      </div>
+      </S.ContainerCalendar>
 
-      <div>
+      <S.ContainerInputs>
         <input
           type="number"
           placeholder='objetivo de megas'
           value={valorMegas}
           onChange={handleChangeValorMegas}
-        />- 
+        />
         <input
           type="number"
           placeholder='objetivo já feito'
           value={valorFeito}
           onChange={handleChangeValorFeito}
-        /> / {selectedDates.length === 0 || '' ? <input type='number' value={diasTrabalho} placeholder='dias trabalho' onChange={handleChangeDiasTrabalho}/> : valueRealForDivision} <button onClick={handleSomarInputs}>Validar</button>
-      </div>
+        /> {selectedDates.length === 0 || '' ? <input type='number' value={diasTrabalho} placeholder='dias trabalho' onChange={handleChangeDiasTrabalho}/> : <p> Dias Trabalho : {valueRealForDivision}</p>} <button onClick={handleSomarInputs}>Validar</button>
+      </S.ContainerInputs>
       {
-            showResults !== 0 || '' ? <h1>{showResults}</h1> : <h1>Por favor, insira números válidos.</h1>
+            showResults !== 0 || '' ? <h1>{showResults}€ Por Dia</h1> : <h1>insira números válidos.</h1>
       }
     </S.Container>
   );
